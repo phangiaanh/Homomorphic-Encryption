@@ -35,7 +35,7 @@ class HomomorphicStub(object):
             channel: A grpc.Channel.
         """
         self.Compute = channel.unary_unary(
-                '/Homomorphic/Compute',
+                '/service.Homomorphic/Compute',
                 request_serializer=homomorphic__pb2.ComputationRequest.SerializeToString,
                 response_deserializer=homomorphic__pb2.ComputationResponse.FromString,
                 _registered_method=True)
@@ -60,9 +60,9 @@ def add_HomomorphicServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'Homomorphic', rpc_method_handlers)
+            'service.Homomorphic', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('Homomorphic', rpc_method_handlers)
+    server.add_registered_method_handlers('service.Homomorphic', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -83,7 +83,7 @@ class Homomorphic(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/Homomorphic/Compute',
+            '/service.Homomorphic/Compute',
             homomorphic__pb2.ComputationRequest.SerializeToString,
             homomorphic__pb2.ComputationResponse.FromString,
             options,

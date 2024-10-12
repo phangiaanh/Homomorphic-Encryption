@@ -1,11 +1,17 @@
 syntax = "proto3";
+package service;
 
 service Homomorphic {
     rpc Compute(ComputationRequest) returns (ComputationResponse) {}
 }
 
+message EncryptedData {
+    repeated int64 polynomials0 = 1;
+    repeated int64 polynomials1 = 2;
+}
+
 message ComputationRequest {
-    repeated string data_array = 1;
+    repeated EncryptedData data_array = 1;
     string operation = 2;
     string evaluation_key = 3;
 }

@@ -24,17 +24,19 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11homomorphic.proto\"S\n\x12\x43omputationRequest\x12\x12\n\ndata_array\x18\x01 \x03(\t\x12\x11\n\toperation\x18\x02 \x01(\t\x12\x16\n\x0e\x65valuation_key\x18\x03 \x01(\t\"4\n\x13\x43omputationResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x03\x12\x0f\n\x07message\x18\x02 \x01(\t2E\n\x0bHomomorphic\x12\x36\n\x07\x43ompute\x12\x13.ComputationRequest\x1a\x14.ComputationResponse\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x11homomorphic.proto\x12\x07service\";\n\rEncryptedData\x12\x14\n\x0cpolynomials0\x18\x01 \x03(\x03\x12\x14\n\x0cpolynomials1\x18\x02 \x03(\x03\"k\n\x12\x43omputationRequest\x12*\n\ndata_array\x18\x01 \x03(\x0b\x32\x16.service.EncryptedData\x12\x11\n\toperation\x18\x02 \x01(\t\x12\x16\n\x0e\x65valuation_key\x18\x03 \x01(\t\"4\n\x13\x43omputationResponse\x12\x0c\n\x04\x63ode\x18\x01 \x01(\x03\x12\x0f\n\x07message\x18\x02 \x01(\t2U\n\x0bHomomorphic\x12\x46\n\x07\x43ompute\x12\x1b.service.ComputationRequest\x1a\x1c.service.ComputationResponse\"\x00\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'homomorphic_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
-  _globals['_COMPUTATIONREQUEST']._serialized_start=21
-  _globals['_COMPUTATIONREQUEST']._serialized_end=104
-  _globals['_COMPUTATIONRESPONSE']._serialized_start=106
-  _globals['_COMPUTATIONRESPONSE']._serialized_end=158
-  _globals['_HOMOMORPHIC']._serialized_start=160
-  _globals['_HOMOMORPHIC']._serialized_end=229
+  _globals['_ENCRYPTEDDATA']._serialized_start=30
+  _globals['_ENCRYPTEDDATA']._serialized_end=89
+  _globals['_COMPUTATIONREQUEST']._serialized_start=91
+  _globals['_COMPUTATIONREQUEST']._serialized_end=198
+  _globals['_COMPUTATIONRESPONSE']._serialized_start=200
+  _globals['_COMPUTATIONRESPONSE']._serialized_end=252
+  _globals['_HOMOMORPHIC']._serialized_start=254
+  _globals['_HOMOMORPHIC']._serialized_end=339
 # @@protoc_insertion_point(module_scope)
