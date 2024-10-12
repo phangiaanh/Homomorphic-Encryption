@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+service Homomorphic {
+    rpc Compute(ComputationRequest) returns (ComputationResponse) {}
+}
+
+message ComputationRequest {
+    repeated string data_array = 1;
+    string operation = 2;
+    string evaluation_key = 3;
+}
+
+message ComputationResponse {
+    int64 code = 1;
+    string message = 2;
+}

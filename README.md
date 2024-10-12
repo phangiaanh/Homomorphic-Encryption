@@ -10,6 +10,14 @@ Project này sử dụng **devcontainer** để khởi tạo môi trường. Edi
 
 Project này bao gồm 2 thành phần: *homomorphic client* dùng để mô phỏng các thao tác người dùng sẽ làm để bảo mật dữ liệu gửi đi và *homomorphic server* dùng để mô phỏng cách server xử lý dữ liệu bảo mật mà không làm mất đi tính toàn vẹn và riêng tư của chúng.
 
+## Generate gRPC
+
+Nếu có bất kỳ thay đổi nào về cấu trúc proto, hãy chạy lại câu lệnh sau:
+
+```bash
+./generate.sh
+```
+
 ## Usage
 
 ### Homomorphic Server
