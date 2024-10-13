@@ -13,10 +13,14 @@ message EncryptedData {
 message ComputationRequest {
     repeated EncryptedData data_array = 1;
     string operation = 2;
-    string evaluation_key = 3;
+    repeated ItemArray relinearization0 = 3;
+    repeated ItemArray relinearization1 = 4;
+}
+
+message ItemArray {
+    repeated int64 item = 1;
 }
 
 message ComputationResponse {
-    int64 code = 1;
-    string message = 2;
+    EncryptedData result = 1;
 }

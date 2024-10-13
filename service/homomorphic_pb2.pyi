@@ -14,19 +14,25 @@ class EncryptedData(_message.Message):
     def __init__(self, polynomials0: _Optional[_Iterable[int]] = ..., polynomials1: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class ComputationRequest(_message.Message):
-    __slots__ = ("data_array", "operation", "evaluation_key")
+    __slots__ = ("data_array", "operation", "relinearization0", "relinearization1")
     DATA_ARRAY_FIELD_NUMBER: _ClassVar[int]
     OPERATION_FIELD_NUMBER: _ClassVar[int]
-    EVALUATION_KEY_FIELD_NUMBER: _ClassVar[int]
+    RELINEARIZATION0_FIELD_NUMBER: _ClassVar[int]
+    RELINEARIZATION1_FIELD_NUMBER: _ClassVar[int]
     data_array: _containers.RepeatedCompositeFieldContainer[EncryptedData]
     operation: str
-    evaluation_key: str
-    def __init__(self, data_array: _Optional[_Iterable[_Union[EncryptedData, _Mapping]]] = ..., operation: _Optional[str] = ..., evaluation_key: _Optional[str] = ...) -> None: ...
+    relinearization0: _containers.RepeatedCompositeFieldContainer[ItemArray]
+    relinearization1: _containers.RepeatedCompositeFieldContainer[ItemArray]
+    def __init__(self, data_array: _Optional[_Iterable[_Union[EncryptedData, _Mapping]]] = ..., operation: _Optional[str] = ..., relinearization0: _Optional[_Iterable[_Union[ItemArray, _Mapping]]] = ..., relinearization1: _Optional[_Iterable[_Union[ItemArray, _Mapping]]] = ...) -> None: ...
+
+class ItemArray(_message.Message):
+    __slots__ = ("item",)
+    ITEM_FIELD_NUMBER: _ClassVar[int]
+    item: _containers.RepeatedScalarFieldContainer[int]
+    def __init__(self, item: _Optional[_Iterable[int]] = ...) -> None: ...
 
 class ComputationResponse(_message.Message):
-    __slots__ = ("code", "message")
-    CODE_FIELD_NUMBER: _ClassVar[int]
-    MESSAGE_FIELD_NUMBER: _ClassVar[int]
-    code: int
-    message: str
-    def __init__(self, code: _Optional[int] = ..., message: _Optional[str] = ...) -> None: ...
+    __slots__ = ("result",)
+    RESULT_FIELD_NUMBER: _ClassVar[int]
+    result: EncryptedData
+    def __init__(self, result: _Optional[_Union[EncryptedData, _Mapping]] = ...) -> None: ...

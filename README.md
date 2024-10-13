@@ -23,13 +23,13 @@ Nếu có bất kỳ thay đổi nào về cấu trúc proto, hãy chạy lại 
 ### Homomorphic Server
 
 ```bash
-python3 homomorphic_server/main.py
+python3 -m homomorphic_server.main
 ```
 
 ### Homomorphic Client
 
 ```bash
-python3 homomorphic_client/main.py
+python3 -m homomorphic_client.main  --data 100 100 50 --op +
 ```
 
 ## License
