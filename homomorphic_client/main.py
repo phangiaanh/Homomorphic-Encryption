@@ -40,6 +40,12 @@ def run():
     args = parser.parse_args()
     pk, sk = keygen(N, Q, POLY_MOD)
 
+    print(f'\n\n\nsize of the polynoms for the public and secret keys: {N} and coefficient modulus: {Q}')
+
+    print(f'\n\n\nPuclic key, which has the form (a, b)-(a, -a*s + e): \n\n{pk}')
+
+    print(f'\n\n\nSecret key, which has the form (s): \n\n{sk}')
+
     # rlk0_v1, rlk1_v1 = evaluate_keygen_v1(sk, N, Q, T, POLY_MOD, STD)
     # print(rlk0_v1)
     # print(rlk1_v1)
@@ -52,7 +58,10 @@ def run():
             # relinearization0=convert_relinearization_to_grpc(rlk0_v1),
             # relinearization1=convert_relinearization_to_grpc(rlk1_v1),
         ))
-    print("Total number after decryption: ")
+
+    print(f"\n\n\nTotal number before decryption: {convert_grpc_to_data(response.result)}")
+    
+    print("\n\n\nTotal number after decryption: ")
     # print(response.result)
     decrypted_ct3 = decrypt(sk, N, Q, T, POLY_MOD, convert_grpc_to_data(response.result))
     print(decrypted_ct3)

@@ -30,6 +30,12 @@ def convert_data_to_grpc(data):
 
 class HomomorphicServer(homomorphic.HomomorphicServicer):
     def Compute(self, request, context):
+
+        print(f'List of decrypted numbers: \n\n')
+        for i in request.data_array:
+            print(convert_grpc_list(i))
+
+        print(f'\n\n\n')
         
         result = functools.reduce(lambda x, y: add_cipher(
                 convert_grpc_list(x), 
